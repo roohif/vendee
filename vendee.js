@@ -24,16 +24,16 @@ function serialiseBoat(b) {
 }
 
 );
-// console.log();
+
 let data = new Blob([JSON.stringify(boats)], {type: 'text/json'});
 
-csvURL = window.URL.createObjectURL(data);
+jsonURL = window.URL.createObjectURL(data);
 const downloadLink = document.createElement("a");
-downloadLink.href = csvURL;
+downloadLink.href = jsonURL;
 downloadLink.download = "vendee.json";
 document.body.appendChild(downloadLink);
 downloadLink.click();
 document.body.removeChild(downloadLink);
-window.URL.revokeObjectURL(csvURL);
+window.URL.revokeObjectURL(jsonURL);
 
 console.log("Done");
